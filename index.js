@@ -4,9 +4,7 @@ function scrollsection(){
         behavior:'smooth'
     })
 }
-function applybtn(){
-    
-}
+
 let seatLeft=40;
 let seatBook=0;
 let totalprice=0;
@@ -16,13 +14,14 @@ const allBtn = document.getElementsByClassName('btn')
     for(const btn of allBtn){
         btn.addEventListener('click', function(){
            
-
+          
             seatLeft--;
             seatBook++;
             if(seatBook>=5){
                 alert("You don't buy no more ticket ")
-                return;
-            }
+              return;
+            }  
+           
             btn.style.backgroundColor = '#1DD100';
             SetInnerText('remaining-seat',seatLeft);
             SetInnerText('seat-count',seatBook);
@@ -45,19 +44,26 @@ const allBtn = document.getElementsByClassName('btn')
             totalprice+=550;
             SetInnerText('total-price',totalprice);
             grandprice=totalprice;
-            SetInnerText('grand-price',grandprice);   
+            SetInnerText('grand-price',grandprice); 
+          
 
             
         })
     }
-    const btn = document.getElementById("apply-btn");
+    
+    const btn = document.getElementById("apply");
+
+    
     btn.addEventListener('click',function(){
-        if(seatBook===4){
-            const apply = document.getElementById('apply-btn')
-            apply.removeAttribute('disabled')
+        
+      
+        if(seatBook>=4){
+            const apply = document.getElementById('apply')
            
-         const couponCode = document.getElementById("input-field").value;
+           
+         const couponCode = document.getElementById('field').value;
          if(couponCode==="NEW15"){
+            
             discountprice=totalprice*0.15;
             grandprice=totalprice-discountprice;
             SetInnerText('grand-price',grandprice);
@@ -74,6 +80,7 @@ const allBtn = document.getElementsByClassName('btn')
             
          }
          else if(couponCode==="Couple 20"){
+            
             discountprice=totalprice*0.20;
             grandprice=totalprice-discountprice;
             SetInnerText('grand-price',grandprice);
@@ -96,6 +103,29 @@ const allBtn = document.getElementsByClassName('btn')
         }
 
     })
+   
+    
+    // next btn er kaaj
+   
+   
+    const btnn = document.getElementById("next-btn");
+btnn.addEventListener('click', function () {
+    const num = document.getElementById("phone-number").value;
+    if (seatBook >= 1 && num.length >= 1) {
+        gethidden('asol');
+        getadd('success');
+    }
+})
+
+
+
+    
+    function gethidden(elementId){
+        document.getElementById(elementId).classList.add('hidden')
+    }
+    function getadd(elementId){
+        document.getElementById(elementId).classList.remove('hidden');
+    }
     function SetInnerText(elementId,value){
         document.getElementById(elementId).innerText=value;
     }
