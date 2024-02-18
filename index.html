@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles/style.css" class="css">
 </head>
 <body>
+  <section id="hidden" class="">
     <header>
         <!-- ei part er ar kunu kam nai -->
         <nav>
@@ -258,28 +259,55 @@
                 <p>Class</p>
                 <p>Price</p>
                </div>
-               <div class="flex gap-12 mb-5">
-                <p>C2</p>
-                <p>Economy</p>
-                <p>550</p>
-               </div>
-               <div class="flex gap-12 mb-5">
-                <p>C2</p>
-                <p>Economy</p>
-                <p>550</p>
-               </div>
+         <!-- eikane append child korbo -->
+         <div id="table-information" class="grid grid-cols-3">
+
+            
+         </div>
                <hr>
                <div>
+               <div class="flex justify-between">
                 <h3 class="text-black font-medium">Total Price</h3>
                 <p>BDT <span id="total-price">0</span></p>
-                <textarea name="" id="" cols="30" rows="1" placeholder="Have any coupon?" 
+               </div>
+               <div id="discount-price" class="flex justify-between">
+
+               </div>
+              <div id="gaibul-hawa">
+                <textarea name="" id="input-field" cols="30" rows="1" placeholder="Have any coupon?" 
                 
                 ></textarea>
                 <button onclick="applybtn" id="apply-btn" class="bg-[#1DD100] p-2 text-white "diabled>Apply</button>
-                <p></p>
+              </div>
+               
+                <div>
+                  <div class="flex justify-between">
+                   <h3 class="text-black font-medium">Grand Price</h3>
+                   <p>BDT <span id="grand-price">0</span></p>
+                  </div>
                </div>
 
             </div>
+            <div class="space-y-5 mt-5">
+              <h3 class="text-xl font-bold">Passenger Name*</h3>
+              <input type="text" placeholder="Enter Your Email" class="input w-full max-w-xs" />
+              <h3 class="text-xl font-bold">Phone Number*</h3>
+              <input id="phone-number" type="number" placeholder="Enter Your phone number" class="input w-full max-w-xs" />
+              <h3 class="text-xl font-bold">Email ID</h3>
+              <input type="text" placeholder="Enter your Email" class="input input-bordered w-full max-w-xs" />
+              
+            </div>
+            <button id="next-btn" class="btn btn-wide w-full bg-[#1DD100] mt-5 text-white">Next</button>
+        <div class="flex justify-between mt-5">
+        <div>
+          <p class="font-thin">Terms and Conditions</p>
+          <hr>
+        </div>
+          <div>
+            <p class="font-thin">Cancelled Policy</p>
+          <hr>
+          </div>
+        </div>
 
            </div>
 
@@ -289,8 +317,14 @@
 
 
     </main>
+  </section>
 
-    
+    <!-- success section -->
+ <section class="container mx-auto hidden">
+  <div class="text-center rounded-xl bg-gray-300 border-solid flex justify-center items-center min-h-screen">
+    <img src="./images/Success Modal.png" alt="">
+  </div>
+ </section>
 </body>
 <script src="./index.js"></script>
 </html>
